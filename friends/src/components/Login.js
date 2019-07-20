@@ -1,4 +1,4 @@
-import React from "React";
+import React from "react";
 
 class Login extends React.Component{
   constructor(){
@@ -16,14 +16,22 @@ class Login extends React.Component{
       [evt.target.name]:  evt.target.value,
     })
   }
+
+  handleSubmit = (evt) => {
+    evt.preventDefault()
+    console.log(this.state)
+  }
+
   render(){
     const { username, password } = this.state
     return(
       <div>
-        <form>
-          <input type="text" name="username" placeholder="Username" value={username} onChange={this.handleChange}/>>
-          <br></br>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" name="username" placeholder="Username" value={username} onChange={this.handleChange}/>
+          <br/><br/>
           <input type="password" name="password" placeholder="Password" value={password} onChange={this.handleChange}/>
+          <br/><br/>
+          <button type="submit">Login</button>
         </form>
       </div>
     )
