@@ -23,7 +23,7 @@ export const FRIEND_LOGIN_LOAD = "FRIEND_LOGIN_LOAD";
 export const FRIEND_LOGIN_SUCCESS = "FRIEND_LOGIN_SUCCESS"; 
 export const FRIEND_LOGIN_FAILED = "FRIEND_LOGIN_FAILED";
 
-export const friendLogIn = () => dispatch => {
+export const friendLogIn = (username, password) => dispatch => {
   dispatch({ type: FRIEND_LOGIN_LOAD })
   return axios
   .post("http://localhost:5000/api/login")
@@ -35,3 +35,4 @@ export const friendLogIn = () => dispatch => {
     dispatch({ type: FRIEND_LOGIN_FAILED, payload: err })
   })
 }
+

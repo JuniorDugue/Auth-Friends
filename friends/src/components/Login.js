@@ -4,8 +4,10 @@ class Login extends React.Component{
   constructor(){
     super()
     this.state = {
-      username: "",
-      password: "",
+      friendsInfo: {
+        username: "",
+        password: "",
+      }
     }
   }
   
@@ -13,6 +15,7 @@ class Login extends React.Component{
     evt.preventDefault()
 
     this.setState({
+      ...this.state,
       [evt.target.name]:  evt.target.value,
     })
   }
